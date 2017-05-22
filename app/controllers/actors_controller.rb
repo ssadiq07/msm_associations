@@ -7,8 +7,15 @@ class ActorsController < ApplicationController
   def show
     @actor = Actor.find_by(id: params[:id])
 
-  
+
   end
+
+  def new_character
+
+
+    redirect_to("http://www.google.com")
+  end
+
 
   def new
   end
