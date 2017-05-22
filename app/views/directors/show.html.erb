@@ -1,0 +1,70 @@
+<h1>Director #<%= @director.id %></h1>
+
+<dl>
+  <dt>Name</dt>
+  <dd><%= @director.name %></dd>
+
+  <dt>Dob</dt>
+  <dd><%= @director.dob %></dd>
+
+  <dt>Bio</dt>
+  <dd><%= @director.bio %></dd>
+
+  <dt>Image url</dt>
+  <dd><%= @director.image_url %></dd>
+
+  <dt># Films</dt>
+  <dd><%= Movie.where(:director_id =>@director.id).count %></dd>
+
+  <dt>Films</dt>
+  <dd><% Movie.where(:director_id =>@director.id).each do |movie| %>
+<li><%= movie.title %></li>
+<% end %>
+
+  </dd>
+
+
+  <dt>Add a new movie</dt>
+  <dd>
+    <form action="/create_movie" method="post">
+      <input name="authenticity_token" type="hidden"
+      value="<%= form_authenticity_token %>"
+    <div>
+      <%= label_tag :title %><br />
+      <%= text_field_tag :title %>
+    </div>
+
+    <div>
+      <%= label_tag :year %><br />
+      <%= number_field_tag :year %>
+    </div>
+
+    <div>
+      <%= label_tag :duration %><br />
+      <%= number_field_tag :duration %>
+    </div>
+
+    <div>
+      <%= label_tag :description %><br />
+      <%= text_area_tag :description %>
+    </div>
+
+    <div>
+      <%= label_tag :image_url %><br />
+      <%= text_field_tag :image_url %>
+    </div>
+
+    <div>
+
+<input type="hidden" name="director_id" value="<%= @director.id %>">
+
+    </div>
+
+    <div>
+      <%= submit_tag "Create Movie" %>
+    </div>
+  </form>
+  </dd>
+
+
+</dl>

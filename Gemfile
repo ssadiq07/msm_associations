@@ -54,3 +54,5 @@ group :test do
   gem "shoulda-matchers"
   gem "webmock"
 end
+
+gem "starter_generators"

@@ -1,0 +1,51 @@
+<h1>Movie #<%= @movie.id %></h1>
+
+<dl>
+  <dt>Title</dt>
+  <dd><%= @movie.title %></dd>
+
+  <dt>Year</dt>
+  <dd><%= @movie.year %></dd>
+
+  <dt>Duration</dt>
+  <dd><%= @movie.duration %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @movie.description %></dd>
+
+  <dt>Image url</dt>
+  <dd><%= @movie.image_url %></dd>
+
+  <dt>Director</dt>
+  <dd><%= Director.find_by(:id => @movie.director_id).name %> </dd>
+
+  <dt>Cast</dt>
+  <dd><%= Director.find_by(:id => @movie.director_id).name %> </dd>
+
+  <dt>New character</dt>
+  <dd>
+  <%= form_tag(characters_url, method: 'post') do %>
+    <div>
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+      
+    </div>
+
+    <div>
+      <%= label_tag :actor_id %><br />
+      <%= select_tag(:actor_id,
+      options_from_collection_for_select(Actor.all, :id, :name),
+      :class => "form-control") %>
+    </div>
+
+    <div>
+      <%= label_tag :name %><br />
+      <%= text_field_tag :name %>
+    </div>
+
+    <div>
+      <%= submit_tag "Create Character" %>
+    </div>
+  <% end %>
+  </dd>
+
+</dl>
