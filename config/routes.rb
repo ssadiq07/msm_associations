@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # CREATE
   get '/actors/new', controller: 'actors', action: 'new', as: 'new_actor'
   post '/actors', controller: 'actors', action: 'create', as: 'actors'
-  post '/create_character', controller: 'actors', action: 'new_character'
+  get '/create_character', controller: 'actors', action: 'new_character'
 
   # READ
   get '/actors', controller: 'actors', action: 'index'
@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   # CREATE
   get '/directors/new', controller: 'directors', action: 'new', as: 'new_director'
   post '/directors', controller: 'directors', action: 'create', as: 'directors'
+  get '/create_movie', controller: 'directors', action: 'create_new_movie'
 
   # READ
   get '/directors', controller: 'directors', action: 'index'

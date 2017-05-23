@@ -11,9 +11,14 @@ class ActorsController < ApplicationController
   end
 
   def new_character
+    @character = Character.new
+    @character.movie_id = params[:movie_id]
+    @character.actor_id = params[:actor_id]
+    @character.name = params[:name]
+    @character.save
 
-
-    redirect_to("http://www.google.com")
+    @actor = Actor.find_by(id: params[:id])
+    redirect_to("/characters")
   end
 
 

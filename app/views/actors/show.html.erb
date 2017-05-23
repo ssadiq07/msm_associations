@@ -27,12 +27,14 @@
   <dt>New character</dt>
   <dd>
 
-<form action="/create_character" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <form action="/create_character">
 
     <div>
       <%= label_tag :movie_id %><br />
-      <%= number_field_tag :movie_id %>
+      <%= select_tag(:movie_id,
+      options_from_collection_for_select(Movie.all, :id, :title),
+      :class => "form-control") %>
     </div>
 
     <div>

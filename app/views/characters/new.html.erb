@@ -1,5 +1,10 @@
 <h1>New Character</h1>
 
+
+
+<p><%= link_to 'Add a New Movie', new_movie_url %></p>
+<p><%= link_to 'Add a New Actor', new_actor_url %></p>
+
 <%= form_tag(characters_url, method: 'post') do %>
   <div>
     <%= label_tag :movie_id %><br />

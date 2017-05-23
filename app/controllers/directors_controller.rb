@@ -11,6 +11,20 @@ class DirectorsController < ApplicationController
   def new
   end
 
+  def create_new_movie
+    @movie = Movie.new
+    @movie.title = params[:title]
+    @movie.year = params[:year]
+    @movie.duration = params[:duration].to_f
+    @movie.description = params[:description]
+    @movie.image_url = params[:image_url]
+    @movie.director_id = params[:director_id]
+    @movie.save
+
+
+    redirect_to("/movies")
+  end
+
   def create
     @director = Director.new
     @director.name = params[:name]

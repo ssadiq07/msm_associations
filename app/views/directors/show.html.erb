@@ -26,9 +26,8 @@
 
   <dt>Add a new movie</dt>
   <dd>
-    <form action="/create_movie" method="post">
-      <input name="authenticity_token" type="hidden"
-      value="<%= form_authenticity_token %>"
+    <form action="/create_movie" >
+  
     <div>
       <%= label_tag :title %><br />
       <%= text_field_tag :title %>
